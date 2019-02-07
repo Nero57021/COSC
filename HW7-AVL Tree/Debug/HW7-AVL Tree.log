@@ -1,0 +1,4 @@
+﻿  Main.cpp
+c:\users\jeremy\documents\personal files\c++\2430-updated\hw7-avl tree\main.cpp(11): warning C4101: 'choice': unreferenced local variable
+c:\users\jeremy\documents\personal files\c++\2430-updated\hw7-avl tree\main.cpp(11): warning C4101: 'item': unreferenced local variable
+  HW7-AVL Tree.vcxproj -> C:\Users\Jeremy\Documents\Personal Files\C++\2430-Updated\Debug\HW7-AVL Tree.exe
