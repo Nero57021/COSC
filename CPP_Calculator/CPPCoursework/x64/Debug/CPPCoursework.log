@@ -1,0 +1,7 @@
+﻿  CalculatorMaths.cpp
+c:\users\jeremy\source\repos\cpp_calculator\cppcoursework\calculatormaths.cpp(107): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\jeremy\source\repos\cpp_calculator\cppcoursework\calculatormaths.cpp(114): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\jeremy\source\repos\cpp_calculator\cppcoursework\calculatormaths.cpp(121): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  CalculatorMaths.obj : /DEBUG:FASTLINK is not supported when managed code is present; restarting link with /DEBUG:FULL
+  CalculatorMaths.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
+  CPPCoursework.vcxproj -> C:\Users\Jeremy\source\repos\CPP_Calculator\x64\Debug\CPP_Calculator.exe
