@@ -1,0 +1,97 @@
+﻿def clean_line(line):
+	Ex. Input – “Join me LIVE in South KoreaðŸ‡ºðŸ‡¸ðŸ‡°ðŸ‡· #NationalAssembly  âž¡ï¸�”
+	Ex. Output – “[join,me,live,in,south,korea,#national,assembly]”
+	FYI ascii_letters  = “abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ”
+	So then you should be sure to include “1234567890@# “ as well (including the space)
+	If you don’t want to deal with using ascii_letters you can just make another string like stuff = "@#abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+
+	To complete: a good option might be to split the line into words using line.split(“ “) 
+	then for each word getting rid of any letters that are not in stuff, then adding the new ‘cleaned’ word to another 
+	list and returning that new list. The given method instructions advise returning a srting, but for the process_tweet_file(file_name) method keeping it as a list will make things easier. 
+
+
+def get_tweet_text(line):
+	Ex. Input – “Twitter,Thank you!,11-15-2017 10:58:18,96,433,false,9307”
+	Ex. Output – “Thank You!”
+
+	To Complete: Split the sting into a list using line.split(“,”). Return the text from the tweet which should be located as position 1 of the list.
+
+
+def read_stopwords():
+	Ex. Output – ['a', 'about', 'above', 'after', 'again', …. , .…,  'your', 'yours', 'yourself', 'yourselves']
+	BE CAREFUL: When you read the .txt file it will include ‘\n’ in the words. You will need to get rid of ‘\n’ before adding it to the array. I would advise using stopword.rstrip('\n').
+
+	To Complete: Open the ‘stopwords.txt’ file. Add each word in each line to a list and return that list. 
+
+
+def process_tweet_text(text):
+	Ex. Input –  “ Twitter for iPhone,Join me LIVE in South KoreaðŸ‡ºðŸ‡¸ðŸ‡°ðŸ‡· #NationalAssembly  #POTUSinAsia âž¡ï¸� https://t.co/M3iEhPdkas  https://t.co/hSxdtd2UnY,11-08-2017 02:14:20,5900,29693,false,928083235040579584”
+	Ex. Output – [“join”,”me”,”live”,”in”,”south”,”korea”,”#nationalassembly”,”#potusinasia”]
+	BE CAREFUL: I also added ‘not x.startswith("https")’ to that if statement because I was having some websites get through the cleaning.
+
+	To complete: Create an array that will be your final result. Call on the read_stopwords() and store that in a list. 
+	Call on the clean_line(text) method with the given raw tweet text co clean it. If you decided to return a string from the clean_line(text) 
+	method then you will have to turn it back into a list using .split(“ “) (So don’t do that and just leave it as a list). For loop that goes through 
+	each word in the clean_line list. No would be a good time before you add it to change that word to lowercase ( word.lower() ). If that word is not 
+	in the stopwords list, add it to the result array. 
+
+
+def process_tweet_file(file_name):
+	Ex. Input – 'tweets.txt'
+	Ex. Output – {'china': 49, 'sending': 3, 'envoy': 1, 'delegation': 7, 'north': 69,…}
+	FYI – to add to a dictionary do ‘dictionary[key] = value’
+	FYI – You need to keep track of the total number of words as well. Maybe making either a spot in the dictionary like dictionary[“*TOTALWORDS*”] = totalnum, 
+	where totalnum is the total words (increment this number in your if/else statements), or make a global variable and add to that (global is easier)
+
+	To Complete: go through each word of each line, if it is a new word that you haven’t see before add it to the dictionary with a value of 1, 
+	else it is not unique so just add one to that value of that words value in the dictionary. Return the dictionary
+
+
+def print_statistics(word_freqs):
+	Ex. Input - {'china': 49, 'sending': 3, 'envoy': 1, 'delegation': 7, 'north': 69,…}
+	FYI – dictionary.keys() will return a list containing all of the words (getting the length of this will  get total num of DIFFERENT words) 
+	while the variable you made in the previous method will get total num of ALL the words. Getting the most frequent word will be don’t by getting the key with the highest value.
+
+	To Complete: Change the variables…yea. 
+
+
+def write_words(word_freqs, file_name):
+	Ex. Input – {'china': 49, 'sending': 3, 'envoy': 1, 'delegation': 7, 'north': 69,…}
+	Ex. Input – ‘words.txt'
+	Ex. Output – A file containing the dictionary, but formatted like 
+		china 49
+		sending 3
+		envoy 1
+		delegation 7
+		north 69
+		korea 63
+		a 81
+		big 143
+		move 13
+
+	To complete: wordFile = open(file_name,"w+") will create a writable file for you. For each item in 
+	the dictionary, get the key and value and write it (wordFile.write(“”)). Then go to the next line and repeat.
+
+
+def read_words(file_name):
+	Ex. Input – ‘words.txt'
+	Some more help - result.append((x[0],x[1][:-1]))
+	FYI - x[1][:-1] will give the value of x[1] with one character removed from the end, and because of how python recognizes 
+	\n as a new line character, it treats it as one 'character;
+
+	To complete: Go through each line of the words.txt file and add each line to a list as a tuple. 
+	To do this take each line and use line.split(" ") which will give you ["china","49\n"] use the line of code above to add it to a 
+	list named result that you will return later 
+
+
+def get_top_users, get_top_hashtags, get_top_words
+	Ex. Input – [('china', '49'), ('sending', '3'), ('envoy', '1'), ('delegation', '7'), ('north', '69'),...]
+	Ex. Output - List containing tuples of the highest values of the respective method
+	
+	To Complete: Make a empty list that will be your final list to return. for each tple in the input list, if 
+	tuples[0].startswith("#") for hashtag methos or tuples[0].startswith("@") for user method add that tuple to 
+	the list. For the top_words method you need to add it to that list if it doesnt start with '@' or "#'. Then you need to sort 
+	that new list in order based on the value stored in spot [1]. I WONT TELL YOU HOW TO SORT IT, sorry i cant 
+	do everything (really tho i used a one line way to do it and i dont feel like finding a more easy to 
+	understand way to do it). Once you have the sorted list do return sorted_list[:n]. This will cut the list to only the first n values, 
+	which should be the largest.
